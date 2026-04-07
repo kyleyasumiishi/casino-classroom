@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppShell } from './components/layout/AppShell';
 import { LobbyPage } from './components/lobby/LobbyPage';
+import { LearnPage } from './components/learn/LearnPage';
 import { NotFound } from './components/shared/NotFound';
 
 function PlaceholderPage({ game, mode }: { game: string; mode: string }) {
@@ -20,11 +21,9 @@ const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { index: true, element: <LobbyPage /> },
-      { path: 'blackjack/learn', element: <PlaceholderPage game="blackjack" mode="learn" /> },
+      { path: ':gameType/learn', element: <LearnPage /> },
       { path: 'blackjack/play', element: <PlaceholderPage game="blackjack" mode="play" /> },
-      { path: 'baccarat/learn', element: <PlaceholderPage game="baccarat" mode="learn" /> },
       { path: 'baccarat/play', element: <PlaceholderPage game="baccarat" mode="play" /> },
-      { path: 'craps/learn', element: <PlaceholderPage game="craps" mode="learn" /> },
       { path: 'craps/play', element: <PlaceholderPage game="craps" mode="play" /> },
       { path: '*', element: <NotFound /> },
     ],
