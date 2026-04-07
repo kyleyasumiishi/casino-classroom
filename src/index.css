@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --felt-green: #1a472a;
+  --cream: #f5f0e8;
+  --gold: #c9a84c;
+}
+
+body {
+  margin: 0;
+  background-color: var(--felt-green);
+  color: var(--cream);
+  min-height: 100dvh;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}

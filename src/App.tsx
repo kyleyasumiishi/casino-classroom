@@ -1,0 +1,36 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AppShell } from './components/layout/AppShell';
+import { LobbyPage } from './components/lobby/LobbyPage';
+import { NotFound } from './components/shared/NotFound';
+
+function PlaceholderPage({ game, mode }: { game: string; mode: string }) {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold text-gold mb-2 capitalize">{game}</h1>
+        <p className="text-cream/60 capitalize">{mode} Mode — Coming Soon</p>
+      </div>
+    </div>
+  );
+}
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppShell />,
+    children: [
+      { index: true, element: <LobbyPage /> },
+      { path: 'blackjack/learn', element: <PlaceholderPage game="blackjack" mode="learn" /> },
+      { path: 'blackjack/play', element: <PlaceholderPage game="blackjack" mode="play" /> },
+      { path: 'baccarat/learn', element: <PlaceholderPage game="baccarat" mode="learn" /> },
+      { path: 'baccarat/play', element: <PlaceholderPage game="baccarat" mode="play" /> },
+      { path: 'craps/learn', element: <PlaceholderPage game="craps" mode="learn" /> },
+      { path: 'craps/play', element: <PlaceholderPage game="craps" mode="play" /> },
+      { path: '*', element: <NotFound /> },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}
