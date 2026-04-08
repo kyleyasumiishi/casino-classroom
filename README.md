@@ -2,6 +2,8 @@
 
 A single-page web app that teaches complete beginners how to play blackjack, baccarat, and craps through structured lessons, then lets them practice at virtual tables with fake chips.
 
+https://casino-classroom.vercel.app/
+
 ## Games
 
 - **Blackjack** — Hit, stand, double down, split. 6-deck shoe, dealer stands on all 17s, 3:2 blackjack payout.
