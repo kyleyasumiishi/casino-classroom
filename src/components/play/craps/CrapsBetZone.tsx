@@ -23,7 +23,8 @@ export function CrapsBetZone({
     <button
       onClick={onClick}
       disabled={dimmed}
-      className={`relative w-full rounded-lg border-2 px-3 py-2 text-left transition-all min-h-[48px] ${
+      aria-label={`${isActive ? `${chipAmount} on ` : 'Place bet on '}${label}, pays ${payout}`}
+      className={`relative w-full rounded-lg border-2 px-3 py-2 text-left transition-all min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-1 focus-visible:ring-offset-felt ${
         dimmed
           ? 'border-cream/10 bg-felt-dark/30 opacity-40 cursor-not-allowed'
           : isActive

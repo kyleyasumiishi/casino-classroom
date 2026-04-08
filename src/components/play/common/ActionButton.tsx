@@ -21,7 +21,8 @@ export function ActionButton({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`px-5 py-3 font-semibold rounded-lg transition-colors min-h-11 min-w-11 ${
+      aria-label={label}
+      className={`px-5 py-3 font-semibold rounded-lg transition-colors min-h-11 min-w-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt ${
         disabled
           ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
           : variantClasses[variant]

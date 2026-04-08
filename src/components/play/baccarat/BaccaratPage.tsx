@@ -3,6 +3,7 @@ import { useWallet } from '../../../store/useWallet';
 import { BaccaratTable } from './BaccaratTable';
 import { BetSelector } from './BetSelector';
 import { ActionButton } from '../common/ActionButton';
+import { OutOfChips } from '../../shared/OutOfChips';
 import { MIN_BET } from '../../../types/common';
 
 const resultLabels: Record<string, string> = {
@@ -84,6 +85,8 @@ export function BaccaratPage() {
           <ActionButton label="New Hand" onClick={game.newRound} />
         </div>
       )}
+
+      <OutOfChips />
     </div>
   );
 }

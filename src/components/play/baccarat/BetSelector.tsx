@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { BaccaratBetType, BaccaratBet } from '../../../types/baccarat';
-import { CHIP_DENOMINATIONS, MIN_BET, MAX_BET } from '../../../types/common';
+import { CHIP_DENOMINATIONS, MAX_BET } from '../../../types/common';
 
 interface BetSelectorProps {
   bets: BaccaratBet[];
@@ -59,7 +59,8 @@ export function BetSelector({
               key={type}
               onClick={() => handleZoneClick(type)}
               disabled={disabled}
-              className={`relative rounded-xl border-2 p-4 text-center transition-all min-h-[88px] ${color} ${
+              aria-label={`Place bet on ${label}, payout ${payout}`}
+              className={`relative rounded-xl border-2 p-4 text-center transition-all min-h-[88px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt ${color} ${
                 disabled
                   ? 'opacity-50 cursor-not-allowed'
                   : 'hover:scale-[1.02] active:scale-95 cursor-pointer'
@@ -88,7 +89,8 @@ export function BetSelector({
             key={denom}
             onClick={() => setSelectedChip(denom)}
             disabled={disabled || denom > chipAmount}
-            className={`w-14 h-14 rounded-full border-2 font-bold text-sm transition-all min-w-11 min-h-11 ${
+            aria-label={`Select ${denom} chip`}
+            className={`w-14 h-14 rounded-full border-2 font-bold text-sm transition-all min-w-11 min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt ${
               chipColors[denom]
             } ${
               selectedChip === denom
@@ -111,7 +113,8 @@ export function BetSelector({
           <button
             onClick={onClear}
             disabled={disabled}
-            className="px-5 py-3 bg-felt-light text-cream rounded-lg hover:bg-felt-light/80 transition-colors min-h-11 font-semibold disabled:opacity-40"
+            aria-label="Clear all bets"
+            className="px-5 py-3 bg-felt-light text-cream rounded-lg hover:bg-felt-light/80 transition-colors min-h-11 font-semibold disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt"
           >
             Clear
           </button>

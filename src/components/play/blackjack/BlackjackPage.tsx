@@ -4,6 +4,7 @@ import { BlackjackTable } from './BlackjackTable';
 import { BettingControls } from '../common/BettingControls';
 import { ActionButton } from '../common/ActionButton';
 import { GameMessage } from '../common/GameMessage';
+import { OutOfChips } from '../../shared/OutOfChips';
 
 export function BlackjackPage() {
   const game = useBlackjack();
@@ -74,6 +75,8 @@ export function BlackjackPage() {
           <ActionButton label="New Hand" onClick={game.newRound} />
         </div>
       )}
+
+      <OutOfChips />
     </div>
   );
 }

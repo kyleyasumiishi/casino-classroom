@@ -39,6 +39,16 @@ export default {
           from: { opacity: '0', transform: 'translateY(-10px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
+        diceTumble: {
+          '0%': { transform: 'rotate(0deg) scale(1)' },
+          '25%': { transform: 'rotate(90deg) scale(1.1)' },
+          '50%': { transform: 'rotate(180deg) scale(1)' },
+          '75%': { transform: 'rotate(270deg) scale(1.1)' },
+          '100%': { transform: 'rotate(360deg) scale(1)' },
+        },
+      },
+      animation: {
+        'dice-tumble': 'diceTumble 0.4s ease-out',
       },
     },
   },

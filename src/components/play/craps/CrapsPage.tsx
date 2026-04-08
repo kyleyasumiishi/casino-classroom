@@ -6,7 +6,8 @@ import { DiceDisplay } from './DiceDisplay';
 import { PointMarker } from './PointMarker';
 import { BeginnerToggle } from './BeginnerToggle';
 import { ActionButton } from '../common/ActionButton';
-import { CHIP_DENOMINATIONS, MIN_BET } from '../../../types/common';
+import { OutOfChips } from '../../shared/OutOfChips';
+import { CHIP_DENOMINATIONS } from '../../../types/common';
 
 const chipColors: Record<number, string> = {
   5: 'bg-gray-100 text-gray-800 border-gray-300',
@@ -19,7 +20,7 @@ const chipColors: Record<number, string> = {
 export function CrapsPage() {
   const game = useCraps();
   const balance = useWallet((s) => s.balance);
-  const [selectedChip, setSelectedChip] = useState(CHIP_DENOMINATIONS[0]);
+  const [selectedChip, setSelectedChip] = useState<number>(CHIP_DENOMINATIONS[0]);
 
   const canRoll = game.activeBets.length > 0 && game.phase !== 'resolved';
 
@@ -77,7 +78,8 @@ export function CrapsPage() {
               key={denom}
               onClick={() => setSelectedChip(denom)}
               disabled={denom > balance}
-              className={`w-12 h-12 rounded-full border-2 font-bold text-xs transition-all min-w-11 min-h-11 ${
+              aria-label={`Select ${denom} chip`}
+              className={`w-12 h-12 rounded-full border-2 font-bold text-xs transition-all min-w-11 min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt ${
                 chipColors[denom]
               } ${
                 selectedChip === denom
@@ -121,6 +123,8 @@ export function CrapsPage() {
           />
         )}
       </div>
+
+      <OutOfChips />
     </div>
   );
 }

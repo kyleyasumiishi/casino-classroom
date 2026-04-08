@@ -2,7 +2,7 @@ import type { DiceRoll } from '../../../types/craps';
 
 interface DiceDisplayProps {
   roll: DiceRoll | null;
-  rolling: boolean;
+  rolling?: boolean;
 }
 
 // Pip positions for each die face (on a 5x5 grid, center = 2,2)
@@ -30,7 +30,7 @@ function Die({ value }: { value: number }) {
   );
 }
 
-export function DiceDisplay({ roll, rolling }: DiceDisplayProps) {
+export function DiceDisplay({ roll }: DiceDisplayProps) {
   if (!roll) {
     return (
       <div className="flex justify-center gap-3 py-4">
@@ -42,7 +42,7 @@ export function DiceDisplay({ roll, rolling }: DiceDisplayProps) {
 
   return (
     <div
-      className={`flex justify-center items-center gap-3 py-4 ${rolling ? 'motion-safe:animate-spin' : ''}`}
+      className="flex justify-center items-center gap-3 py-4 motion-safe:animate-dice-tumble"
       role="img"
       aria-label={`Rolled ${roll.die1} and ${roll.die2}, total ${roll.total}`}
     >

@@ -26,7 +26,8 @@ export function GameMessage({ result, amount, onDismiss }: GameMessageProps) {
   return (
     <button
       onClick={onDismiss}
-      className={`w-full py-4 px-6 rounded-xl font-bold text-lg text-center shadow-lg motion-safe:animate-[slideDown_0.3s_ease-out] ${config.color}`}
+      aria-label={`${config.text}${showAmount ? ` ${config.prefix}${Math.round(amount)}` : ''}. Click to dismiss.`}
+      className={`w-full py-4 px-6 rounded-xl font-bold text-lg text-center shadow-lg motion-safe:animate-[slideDown_0.3s_ease-out] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${config.color}`}
     >
       <span>{config.text}</span>
       {showAmount && (

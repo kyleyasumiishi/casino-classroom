@@ -7,17 +7,6 @@ import { BaccaratPage } from './components/play/baccarat/BaccaratPage';
 import { CrapsPage } from './components/play/craps/CrapsPage';
 import { NotFound } from './components/shared/NotFound';
 
-function PlaceholderPage({ game, mode }: { game: string; mode: string }) {
-  return (
-    <div className="flex items-center justify-center min-h-[60vh]">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold text-gold mb-2 capitalize">{game}</h1>
-        <p className="text-cream/60 capitalize">{mode} Mode — Coming Soon</p>
-      </div>
-    </div>
-  );
-}
-
 const router = createBrowserRouter([
   {
     path: '/',

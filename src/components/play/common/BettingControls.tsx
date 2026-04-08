@@ -55,7 +55,8 @@ export function BettingControls({
             key={denom}
             onClick={() => handleChipClick(denom)}
             disabled={disabled || denom > balance + currentBet - currentBet}
-            className={`w-14 h-14 rounded-full border-2 font-bold text-sm transition-all min-w-11 min-h-11 ${
+            aria-label={`Select ${denom} chip`}
+            className={`w-14 h-14 rounded-full border-2 font-bold text-sm transition-all min-w-11 min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt ${
               chipColors[denom]
             } ${
               selectedChip === denom
@@ -78,7 +79,8 @@ export function BettingControls({
           <button
             onClick={onClear}
             disabled={disabled}
-            className="px-5 py-3 bg-felt-light text-cream rounded-lg hover:bg-felt-light/80 transition-colors min-h-11 font-semibold disabled:opacity-40"
+            aria-label="Clear current bet"
+            className="px-5 py-3 bg-felt-light text-cream rounded-lg hover:bg-felt-light/80 transition-colors min-h-11 font-semibold disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt"
           >
             Clear
           </button>
@@ -86,7 +88,8 @@ export function BettingControls({
         <button
           onClick={onAction}
           disabled={!canDeal}
-          className={`px-8 py-3 rounded-lg font-bold text-lg transition-colors min-h-11 ${
+          aria-label={actionLabel}
+          className={`px-8 py-3 rounded-lg font-bold text-lg transition-colors min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-felt ${
             canDeal
               ? 'bg-gold text-felt-dark hover:bg-gold-light'
               : 'bg-gray-600 text-gray-400 cursor-not-allowed'

@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import { afterEach } from 'vitest';
 
 // Node 25 provides a built-in localStorage that is incomplete (no setItem/getItem/clear methods).
 // Replace it with a proper Web Storage API-compliant implementation for tests.
